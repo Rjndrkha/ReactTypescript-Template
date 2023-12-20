@@ -1,13 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+:root {
+  --max-width: 1280px;
+  --font-family: "Plus Jakarta Sans", sans-serif;
+
+  --white: #f9fcfd;
+  --black: #020506;
+
+  --primary-10: #d3ecf2;
+  --primary-20: #a6d8e4;
+  --primary-30: #7ac5d7;
+  --primary-40: #4db1c9;
+  --primary-50: #219ebc;
+
+  --secondary-10: #f2d9d3;
+  --secondary-20: #e4b2a6;
+  --secondary-30: #d78c7a;
+  --secondary-40: #c9654d;
+  --secondary-50: #bc3f21;
+
+  --error: #ff2e2e;
+  --caution: #f4b63c;
+  --success: #2a9928;
+
+  --error-bg: #ffe5e5;
+  --caution-bg: #e5f3e5;
+  --success-bg: #fef6e7;
+
+  --gray-10: #fafafa;
+  --gray-20: #f5f5f5;
+  --gray-30: #e8e8e8;
+  --gray-40: #bdbdbd;
+  --gray-50: #999999;
+
+  --default-transition: 0.2s all ease-in-out;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* 
+	border: 1px solid red; */
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--white);
+  font-size: 1.6rem;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
