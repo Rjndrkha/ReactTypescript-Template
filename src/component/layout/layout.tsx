@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Navbar from "../navbar/navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "../footer/footer";
+import { useTodoStore } from "../../store/todo/store";
 
 function LayoutUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,7 +18,7 @@ function LayoutUser() {
         <main className="w-full max-w-6xl flex flex-col md:flex-row relative bg-white">
           <section
             className={`z-10 bg-white h-full w-full md:w-[10rem] lg:w-48 absolute left-0 ${
-              isSidebarOpen ? "translate-x-0 w-[90%]" : "-translate-x-full"
+              isSidebarOpen ? "translate-x-0 w-[80%]" : "-translate-x-full"
             } md:translate-x-0 transition-transform duration-300 ease-in-out`}
           >
             <div className="bg-red-950 left-0 h-full w-full">

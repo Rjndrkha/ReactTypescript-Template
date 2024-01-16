@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import TodosClient from "../service/dataMock/ApiTodos";
+import TodosClient from "../../service/dataMock/ApiTodos";
 
-interface Todo {
+export interface Todo {
   id: number;
   userId: number;
   title: string;
