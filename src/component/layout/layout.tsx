@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Navbar from "../navbar/navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../footer/footer";
 import { useTodoStore } from "../../store/todo/store";
 
 function LayoutUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const location = useLocation();
+
+  const [progress, setProgress] = useState(0);
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  useEffect(() => {
+    const updateProgress = () => {
+      setProgress(40);
+      setTimeout(() => {
+        setProgress(100);
+      }, 500);
+    };
+    updateProgress();
+  }, [location]);
+
   return (
     <>
-      <Navbar onClickHamburger={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+      <Navbar
+        onClickHamburger={toggleSidebar}
+        isSidebarOpen={isSidebarOpen}
+        progress={progress}
+        setProgress={setProgress}
+      />
       <div className="mt-12 w-full min-h-[100vh] flex justify-center">
         <main className="w-full max-w-6xl flex flex-col md:flex-row relative bg-white">
           <section
@@ -22,7 +42,7 @@ function LayoutUser() {
             } md:translate-x-0 transition-transform duration-300 ease-in-out`}
           >
             <div className="bg-red-950 left-0 h-full w-full">
-              <h1 className="text-lg text-orange-500">Sidebar</h1>
+              <SidebarLink />
             </div>
           </section>
 
@@ -37,3 +57,14 @@ function LayoutUser() {
 }
 
 export default LayoutUser;
+
+function SidebarLink() {
+  return (
+    <div className="bg-red-950 left-0 h-full w-full">
+      <h1 className="text-lg text-orange-500">Sidebar</h1>
+      <a href="/page1" className="text-white">
+        Page 1
+      </a>
+    </div>
+  );
+}

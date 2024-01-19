@@ -1,7 +1,13 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import LoadingBar from "react-top-loading-bar";
 
-function Navbar({ onClickHamburger, isSidebarOpen }: any) {
+function Navbar({
+  onClickHamburger,
+  isSidebarOpen,
+  progress,
+  setProgress,
+}: any) {
   return (
     <header className="z-20 w-full h-12 fixed top-0 flex justify-center">
       <div className="h-full w-full max-w-6xl bg-white items-center relative">
@@ -18,6 +24,17 @@ function Navbar({ onClickHamburger, isSidebarOpen }: any) {
           <h1 className="text-lgs">Test</h1>
         </div>
       </div>
+
+      <LoadingBar
+        color="#d3ecf2"
+        height={5}
+        shadow={true}
+        progress={progress}
+        waitingTime={400}
+        onLoaderFinished={() => {
+          setProgress(0);
+        }}
+      />
     </header>
   );
 }
