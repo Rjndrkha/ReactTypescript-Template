@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { useEffect, useState } from "react";
 import Navbar from "../navbar/navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../footer/footer";
-import { useTodoStore } from "../../store/todo/store";
 
 function LayoutUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const [prevLocation, setPrevLocation] = useState("");
   const location = useLocation();
 
   const [progress, setProgress] = useState(0);
@@ -17,13 +16,17 @@ function LayoutUser() {
   };
 
   useEffect(() => {
-    const updateProgress = () => {
-      setProgress(40);
-      setTimeout(() => {
-        setProgress(100);
-      }, 500);
-    };
-    updateProgress();
+    setPrevLocation(location.pathname);
+    setProgress(40);
+
+    if (prevLocation !== location.pathname) {
+      setProgress(100);
+    }
+
+    if (location.pathname === prevLocation) {
+      setPrevLocation("");
+      setProgress(100);
+    }
   }, [location]);
 
   return (

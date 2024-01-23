@@ -13,10 +13,6 @@ function Home() {
     fetchData();
   }, [getTodos]);
 
-  // useEffect(() => {
-  //   console.log(todos);
-  // }, [todos]);
-
   const handleUnchecked = (data: Todo) => {
     console.log(data);
 
