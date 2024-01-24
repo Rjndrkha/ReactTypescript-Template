@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../navbar/navbar";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../footer/footer";
+import SideMenu from "../menu/menu";
 
 function LayoutUser() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,19 +38,19 @@ function LayoutUser() {
         progress={progress}
         setProgress={setProgress}
       />
-      <div className="mt-12 w-full min-h-[100vh] flex justify-center">
-        <main className="w-full max-w-6xl flex flex-col md:flex-row relative bg-white">
+      <div className="mt-16 w-full min-h-[100vh] flex justify-center">
+        <main className="w-full max-w-[85rem] flex flex-col md:flex-row relative border">
           <section
-            className={`z-10 bg-white h-full w-full md:w-[10rem] lg:w-48 absolute left-0 ${
+            className={`z-10 bg-white  h-full w-full md:w-[10rem] lg:w-[15rem] absolute left-0 ${
               isSidebarOpen ? "translate-x-0 w-[80%]" : "-translate-x-full"
             } md:translate-x-0 transition-transform duration-300 ease-in-out`}
           >
-            <div className="bg-red-950 left-0 h-full w-full">
-              <SidebarLink />
+            <div className="left-0 h-full w-full">
+              <SideMenu />
             </div>
           </section>
 
-          <section className="bg-red-200 w-full md:w-[55rem] lg:w-[60rem] md:ml-[10rem] lg:ml-[12rem] relative">
+          <section className=" w-full md:ml-[10rem] lg:ml-[16rem] relative">
             <Outlet />
           </section>
         </main>
